@@ -1,5 +1,7 @@
 package br.com.bookstore;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,12 +27,18 @@ public class BookstoreApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Categoria cat1 = new Categoria(null, "Informática", "Livros de TI");
-		Livro l1 = new Livro(null, "Clean Code", "Robert Martin", "Lorem ipsum", cat1);
-		cat1.add(l1);
+		Categoria cat2 = new Categoria(null, "Direito", "Livros de Direito");
+		Livro l2 = new Livro(null, "Vade Mecum", "Eveline Morais", "Manual do burro do direito", cat2);
+		cat2.add(l2);
+		Categoria cat3 = new Categoria(null, "Engenharia", "Livros de Engenharia");
+		Livro l3 = new Livro(null, "Engenheiro Iniciante", "Toim Pedreiro", "Manual do burro do engenheiro", cat3);
+		cat3.add(l3);
+		Livro l4 = new Livro(null, "Teoria Geral do Processo", "Jose de Albuquerque Rocha", "Teoria do processo", cat2);
+		cat2.add(l4);
 
-		cr.save(cat1);
-		lr.save(l1);
+		cr.saveAll(Arrays.asList(cat2, cat3));
+		lr.saveAll(Arrays.asList(l2, l3, l4));
+
 	}
 
 }
