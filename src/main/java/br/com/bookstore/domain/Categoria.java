@@ -12,12 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Categoria implements Serializable{
+public class Categoria implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -85,4 +85,8 @@ public class Categoria implements Serializable{
 		return Objects.equals(id, other.id);
 	}
 
+	public void add(Livro livro) {
+		livro.setCategoria(this);
+		this.livros.add(livro);
+	}
 }
