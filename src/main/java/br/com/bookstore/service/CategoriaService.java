@@ -42,4 +42,9 @@ public class CategoriaService {
 		categoria.setDescricao(catDto.getDescricao());
 		return repository.save(categoria);
 	}
+
+	public void delete(Long id) {
+		Categoria categoria = findById(id);
+		repository.delete(categoria);
+	}
 }
