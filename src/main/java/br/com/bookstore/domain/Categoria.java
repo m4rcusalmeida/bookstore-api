@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import br.com.bookstore.dtos.CategoriaDto;
+
 @Entity
 public class Categoria implements Serializable {
 	/**
@@ -34,6 +36,12 @@ public class Categoria implements Serializable {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
+	}
+
+	public Categoria(CategoriaDto catDto) {
+		this.id = catDto.getId();
+		this.nome = catDto.getNome();
+		this.descricao = catDto.getDescricao();
 	}
 
 	public Long getId() {
