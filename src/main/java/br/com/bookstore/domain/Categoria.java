@@ -39,7 +39,6 @@ public class Categoria implements Serializable {
 	}
 
 	public Categoria(CategoriaDto catDto) {
-		this.id = catDto.getId();
 		this.nome = catDto.getNome();
 		this.descricao = catDto.getDescricao();
 	}

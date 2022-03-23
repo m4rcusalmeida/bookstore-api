@@ -43,7 +43,7 @@ public class CategoriaService {
 		categoria.setDescricao(catDto.getDescricao());
 		return repository.save(categoria);
 	}
-
+	@Transactional
 	public void delete(Long id) {
 		findById(id);
 		try {
